@@ -4,28 +4,30 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled, ThemeProvider } from '@mui/material/styles';
 import { theme } from './Styles';
+import { Constants } from '../helper/Constants';
 
 const CssTextField = styled(TextField)({
   '& label.Mui-focused': {
-    color: 'green',
+    color: Constants.primaryColor,
   },
   '& .MuiInput-underline:after': {
     borderBottomColor: 'green',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: 'purple',
+      borderColor: Constants.primaryColor,
     },
     '&:hover fieldset': {
-      borderColor: 'blue',
+      borderColor: "green",
     },
     '&.Mui-focused fieldset': {
-      borderColor: 'green',
+      borderColor: Constants.primaryColor,
     },
   },
 });
 
-export default function AutoCountry() {
+export default function AutoCountry(params) {
+
   return (
     <ThemeProvider theme={theme}>
     <Autocomplete

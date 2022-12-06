@@ -12,22 +12,55 @@ import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
 import { FormControl } from '@mui/material';
 import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
 import Navbar from "./Navbar";
+import { useLocation , useNavigate } from "react-router-dom";
+
+const CssTextField = styled(TextField)({
+  '& label': {
+    color : 'white'
+  },
+  '& label.Mui-focused': {
+    color: 'white',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'white',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: "white",
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'white',
+    },
+    
+  },
+});
+
 function Portfolio() {
+
+    const useLoc = useLocation();
+    const ref = React.createRef();
+    const navigate = useNavigate();
+    
+
+    let data = useLoc.state;
+    console.log(data);
+
   const [value, setValue] = React.useState('Main_Skills');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
-    <>
+    <div style = {{backgroundColor : 'lightgray' , height : '450vh'}}>
     <Navbar/>
-      <div
-        className="  gradient-form position-relative " style={{top:'60px'}}
-       
-      >
-        <MDBRow className="profileBg d-flex flex-column flex-lg-row px-5 py-5">
-          <MDBCol className="mb-5 col-12 col-lg-4 mx-auto ">
+      <div className="  gradient-form position-relative " style={{top:'60px'}}>
+        <MDBRow style = {{backgroundColor : 'lightgray'}} className="profileBg d-flex flex-column flex-lg-row px-5 py-5">
+          <MDBCol  className="mb-5 col-12 col-lg-4 mx-auto ">
             <section className="text-start d-flex flex-columnn justify-content-center lg:w-full lg:py-40 lg:text-left">
               <div className="">
                 <img
@@ -51,14 +84,14 @@ function Portfolio() {
                       fontWeight: "bold",
                     }}
                   >
-                    Hi I am John Doe
+                    Hi I am {data.firstName} {data.lastName}
                   </span>
                   <br />
 
                   <Typewriter
                     className="typewriter"
                     options={{
-                      strings: ["Designer", "Developer"],
+                      strings: ["Hacker", "Developer"],
                       autoStart: true,
                       loop: true,
                     }}
@@ -72,7 +105,7 @@ function Portfolio() {
                       fontWeight: "bold",
                     }}
                   >
-                    based In USA
+                    based In Pakistan
                   </span>
                 </h1>
               </div>
@@ -85,7 +118,7 @@ function Portfolio() {
             <div className=" mt-md-5 mt-md-2 ">
                 <h1 className="text-white">About Me</h1>
                 <p className="text-break text-white">
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered <a href="#" style={{ color:'#8c00ff' }}>alteration</a> in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum,
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered <a href="#" style={{ color:'red' }}>alteration</a> in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum,
                 </p>
               </div>
               
@@ -93,32 +126,34 @@ function Portfolio() {
               <Box sx={{ width: '100%', typography: 'body1' }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="Main Skills" value="Main_Skills" className="text-white"/>
-            <Tab label="Main Awards" value="Main_Awards" className="text-white"/>
-            <Tab label="Experience" value="Experience" className="text-white"/>
-            <Tab label="Certificate & Education" value="Certificates" className="text-white"/>
+          <TabList TabIndicatorProps={{style: {background:'#a9a9a9'}}} onChange={handleChange} aria-label="lab API tabs example">
+            <Tab label="Education" value="Main_Skills" className="text-white"/>
+            <Tab label="Experience" value="Main_Awards" className="text-white"/>
+            <Tab label="Skills" value="Experience" className="text-white"/>
+            <Tab label="Certificates" value="Certificates" className="text-white"/>
           </TabList>
         </Box>
         <TabPanel value="Main_Skills" className="p-2">  <ul className="ps-0">
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>User experience design - UI/UX</a><br/>Delight the user and make it work.</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>User experience design - UI/UX</a><br/>Delight the user and make it work.</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>User experience design - UI/UX</a><br/>Delight the user and make it work.</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a style={{color:'white', fontWeight:'bold'}}> {data.studyProgram} </a><br/> {data.iopoe} </li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a style={{color:'white', fontWeight:'bold'}}> {data.city2} </a><br/> {data.country} </li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a style={{color:'white', fontWeight:'bold'}}> GPA : </a> {data.gpa} </li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a style={{color:'white', fontWeight:'bold'}}> Start Date : </a> 15/09/2014 </li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a style={{color:'white', fontWeight:'bold'}}> End Date : </a> 11/05/2018 </li>
                    </ul></TabPanel>
         <TabPanel value="Main_Awards" className="p-2"> <ul className="ps-0">
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Awwwards.com - Winner</a><br/>2019 - 2020</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>CSS Design Awards - Winner</a><br/>2017 - 2018</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Design nominees - site of the day</a><br/>2013- 2014</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}> {data.title} </a><br/> {data.workPlace} </li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}> {data.city1} </a><br/> {data.country1} </li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}> {data.task} </a><br/>2021- 2025</li>
                    </ul></TabPanel>
         <TabPanel value="Experience" className="p-2"> <ul className="ps-0">
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Sr. Front-end Engineer - Google</a><br/>2018 - Current</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Front-end Engineer - Microsoft</a><br/>2017 - 2018</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Software Engineer - Alibaba</a><br/>2013- 2014</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}> {data.skill} </a><br/>2018 - Current</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Front-end Engineer - Microsoft</a><br/>2017 - 2018</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Software Engineer - Alibaba</a><br/>2013- 2014</li>
                    </ul></TabPanel>
                    <TabPanel value="Certificates" className="p-2"> <ul className="ps-0">
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>BSc In CSE - ABC University, Los Angeles, CA</a><br/>2010</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Diploma in Computer Science - Gamma Technical Institute</a><br/>2009</li>
-                    <li className="my-3" style={{listStyle:'none', color:'#8c00ff' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Graphic Designer - ABC Institute, Los Angeles, CA</a><br/>2007</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}> {data.certificate} </a><br/>2018</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Diploma in Computer Science - Gamma Technical Institute</a><br/>2009</li>
+                    <li className="my-3" style={{listStyle:'none', color:'red' }}><a href="#" style={{color:'white', fontWeight:'bold'}}>Graphic Designer - ABC Institute, Los Angeles, CA</a><br/>2007</li>
                    </ul></TabPanel>
       </TabContext>
     </Box>
@@ -138,20 +173,20 @@ function Portfolio() {
             </section>
           </MDBCol>
         </MDBRow>
-        <MDBRow className="projectList mx-auto p-0 py-md-3 px-md-5 my-5">
+        <MDBRow style = {{backgroundColor : '#22577a'}} className="projectList mx-auto p-0 py-md-3 px-md-5 my-5">
           <div className="">
             <ul className="list-group list-group-light mb-0  d-flex flex-col flex-sm-row flex-wrap justify-content-center" style={{listStyle:'none'}}>
-              <li className="list-group-item p-3 border border-1 text-break ">
-               <button style={{border:'none', backgroundColor:'transparent'}}> All Projects</button>
+              <li style = {{backgroundColor : '#a9a9a9'}} className="list-group-item p-3 border border-1 text-break ">
+               <button style={{border:'none'}}> All Projects</button>
               </li>
-              <li className="list-group-item p-3 border border-1 text-break ">
-              <button style={{border:'none', backgroundColor:'transparent'}}>  Web Projects</button>
+              <li style = {{backgroundColor : '#a9a9a9'}} className="list-group-item p-3 border border-1 text-break ">
+              <button style={{border:'none'}}>  Web Projects</button>
               </li>
-              <li className=" list-group-item p-3 border border-1 text-break ">
-               <button style={{border:'none', backgroundColor:'transparent'}}> Web Designs</button>
+              <li style = {{backgroundColor : '#a9a9a9'}} className=" list-group-item p-3 border border-1 text-break ">
+               <button style={{border:'none'}}> Web Designs</button>
               </li>
-              <li className="list-group-item p-3 border border-1 text-break ">
-               <button style={{border:'none', backgroundColor:'transparent'}}> Logo Designs</button>
+              <li style = {{backgroundColor : '#a9a9a9'}} className="list-group-item p-3 border border-1 text-break ">
+               <button style={{border:'none'}}> Logo Designs</button>
               </li>
             </ul>
           </div>
@@ -164,9 +199,9 @@ function Portfolio() {
               <div className="container">
                 <a href="#">
                 <h4>
-                  <b>John Doe</b>
+                  <b style = {{color : '#22577a'}}>John Doe</b>
                 </h4>
-                <p>Architect & Engineer</p></a>
+                <p style = {{color : '#22577a'}}>Architect & Engineer</p></a>
               </div>
               </div>
             </div>
@@ -176,9 +211,9 @@ function Portfolio() {
               <div className="container">
                 <a href="#">
                 <h4>
-                  <b>John Doe</b>
+                  <b style = {{color : '#22577a'}}>John Doe</b>
                 </h4>
-                <p>Architect & Engineer</p></a>
+                <p style = {{color : '#22577a'}}>Architect & Engineer</p></a>
               </div>
               </div>
             </div>
@@ -188,20 +223,18 @@ function Portfolio() {
               <div className="container">
                 <a href="#">
                 <h4>
-                  <b>John Doe</b>
+                  <b style = {{color : '#22577a'}}>John Doe</b>
                 </h4>
-                <p>Architect & Engineer</p></a>
+                <p style = {{color : '#22577a'}}>Architect & Engineer</p></a>
               </div>
               </div>
             </div>
            
           </div>
         </div>
-        <MDBRow className="  mt-0 mb-5">
+        <MDBRow className="mt-0 mb-5">
           <div className="text-center">
-          <Button  variant="contained"  className="mx-auto ">
- <a href="#" className="text-white"> View More </a>
-</Button>
+        <Button sx = {{backgroundColor : '#22577a'}} variant="contained" > View More </Button>
           </div>
         </MDBRow>
         <MDBRow className="aboutprofile d-flex flex-column flex-lg-row px-3 py-5">
@@ -210,7 +243,7 @@ function Portfolio() {
             <div className=" mt-md-5 mt-md-2 ">
                 <h1 className="text-white">Hire Me.</h1>
                 <p className="text-break text-white">
-                I am available for freelance work. Connect with me via phone: 01923 088574 or email: admin@example.com
+                I am available for freelance work. Connect with me via phone: <a style = {{color : 'red'}}> 01923 088574 </a> or email: <a style = {{color : 'red'}}>admin@example.com</a>
                 </p>
               </div>
               
@@ -221,16 +254,16 @@ function Portfolio() {
       }}
     >
       <FormControl fullWidth action="#" >
-      <TextField fullWidth label="Name" id="name" className="my-2 " type="text" required autoComplete="off"/>
-      <TextField fullWidth label="Email" id="email" className="my-2 " type="email" required autoComplete="off"/>
-      <TextField fullWidth label="Write a Subject" id="subject"className="my-2 " type="text" required autoComplete="off" />
-      <TextField fullWidth label="Message" id="message"   multiline
+      <CssTextField fullWidth inputProps={{ style: { color: "white" } }} label="Name" id="name" className="my-2 " type="text" required autoComplete="off"/>
+      <CssTextField fullWidth inputProps={{ style: { color: "white" } }} label="Email" id="email" className="my-2 " type="email" required autoComplete="off"/>
+      <CssTextField fullWidth inputProps={{ style: { color: "white" } }} label="Write a Subject" id="subject"className="my-2 " type="text" required autoComplete="off" />
+      <CssTextField fullWidth inputProps={{ style: { color: "white" } }} label="Message" id="message"   multiline
           rows={4} className="my-2 " type="text" required autoComplete="off"/>
-          <Button style={{width:'30%'}} variant="contained" type="submit" endIcon={<SendIcon />}>
-  Send
-</Button>
-</FormControl>
-    </Box>
+          <Button style={{width:'25%'}} sx = {{backgroundColor : '#a9a9a9' , color : '#22577a' , fontWeight : 'bold'}} variant="contained" type="submit" endIcon={<SendIcon />}>
+            Send
+          </Button>
+      </FormControl>
+          </Box>
             </section>
           </MDBCol>
 
@@ -247,7 +280,7 @@ function Portfolio() {
             </section>
           </MDBCol>
         </MDBRow>
-        <footer className="bg-white text-center text-black">
+        <footer className="bg-lightgray text-center text-black">
           <div className="container p-4 pb-0">
             <section className="mb-4">
               <a
@@ -300,18 +333,15 @@ function Portfolio() {
             </section>
           </div>
 
-          <div
-            className="text-center p-3 text-white bg-dark"
-            
-          >
-            © 2020 Copyright:
-            <a className="text-white" href="https://securehops.com/">
-              Securehops.com
+          <div style = {{backgroundColor : '#22577a'}} className="text-center p-3 text-white">
+            © 2023 Copyright:
+            <a className="text-white" href="https://raisingskills.com/">
+              Raisingskills.com
             </a>
           </div>
         </footer>
       </div>
-    </>
+    </div>
   );
 }
 

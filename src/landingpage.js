@@ -13,10 +13,15 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom';
+import profile from './img/profile.jpg'
+import story from './img/story.png'
+import resume from './img/resume.jpg'
+
+
 function Landingpage() {
   const navigate = useNavigate();
   return (
-    <>
+    <div style = {{backgroundColor : 'lightgray' , height : '170vh'}}>
     <Navbar/>
     <MDBContainer className="my-5 gradient-form position-relative" style={{top:'60px'}}>
 
@@ -44,78 +49,79 @@ function Landingpage() {
     </MDBRow>
     <MDBRow className='pb-4 d-flex flex-row flex-wrap mx-auto'>
         <MDBCol  className="my-3 col-12 col-md-6 col-lg-4">
-        <Card sx={{ maxWidth: 345 }} className="mx-auto">
+        <Card className="card mx-2 " style = {{backgroundColor : ''}} sx={{ maxWidth: 345 }} className="mx-auto">
       <CardActionArea onClick={()=>navigate('/PersonalInformation')}>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={story}
           alt="green iguana"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h6 bold" component="div" style={{fontWeight:'bold' ,color:'#4338ca'}}>
+        <CardContent style = {{backgroundColor : '#22577a'}}>
+          <Typography gutterBottom variant="h6 bold" component="div" style={{fontWeight:'bold' , color:'#a9a9a9'}}>
             CV Generator
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography style = {{color : '#a9a9a9'}} variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
+      <CardActions style = {{backgroundColor : '#22577a'}}>
+        
+        <Button size="small" style = {{backgroundColor : '#a9a9a9' , color : "#22577a"}}>
           Share
         </Button>
       </CardActions>
     </Card>
         </MDBCol>
         <MDBCol  className="my-3 col-12 col-md-6 col-lg-4 ">
-        <Card sx={{ maxWidth: 345 }} className="mx-auto">
+        <Card style = {{backgroundColor : '#22577a'}} sx={{ maxWidth: 345 }} className="mx-auto">
       <CardActionArea>
         <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+           component="img"
+           height="140"
+           image={profile}
+           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h6 bold" component="div" style={{fontWeight:'bold' , color:'#4338ca'}}>
+          <Typography gutterBottom variant="h6 bold" component="div" style={{fontWeight:'bold' , color:'#a9a9a9'}}>
             Portfolio Generator
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography style = {{color : '#a9a9a9'}} variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" style = {{backgroundColor : '#a9a9a9' , color : '#22577a'}}>
           Share
         </Button>
       </CardActions>
     </Card>
         </MDBCol>
         <MDBCol className="my-3 col-12 col-md-6 col-lg-4 ">
-        <Card sx={{ maxWidth: 345 }} className="mx-auto">
+        <Card style = {{backgroundColor : '#22577a'}} sx={{ maxWidth: 345 }} className="mx-auto">
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          height="132"
+          image={resume}
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h6" component="div" style={{fontWeight:'bold' , color:'#4338ca'}}>
+          <Typography gutterBottom variant="h6" component="div" style={{fontWeight:'bold' , color:'#a9a9a9'}}>
             Live Portfolio
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography style = {{color : '#a9a9a9'}} variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" style = {{backgroundColor : '#a9a9a9' , color : "#22577a"}}>
           Share
         </Button>
       </CardActions>
@@ -124,7 +130,7 @@ function Landingpage() {
     </MDBRow>
 
   </MDBContainer>
-  </>
+  </div>
 );
 }
 

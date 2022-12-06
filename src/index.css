@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: gr;
 }
 
 code {
@@ -22,14 +23,9 @@ code {
 }
 .gradient-custom-2 {
   /* fallback for old browsers */
-  background: #4338ca;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, #4338ca, #6b21a8);
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #4338ca,  #6b21a8);
+  background: #22577a;
 }
+
 .form-outline .form-control:focus~.form-notch .form-notch-leading {
   border-top: .125rem solid #4338ca !important;
   border-bottom: .125rem solid #4338ca !important;
@@ -50,10 +46,11 @@ code {
   color: #4338ca !important;
 }
 .btn-sign:hover{
- background-color: #4338ca !important;
- color:white !important;
+ background-color: #22577a !important;
+ color : white !important;
+ font-weight: bold;
 }
-#navbarsignup{
+/* #navbarsignup{
   background-color: #8c00ff !important;
   margin: 4px;
 }
@@ -76,31 +73,39 @@ code {
 #Contact{
   background-color: #8c00ff !important;
   margin: 4px;
-}
+} */
 #navbarsignup:hover{
-  background-color: transparent !important;
+  background-color: #a9a9a9 !important;
+  color : #22577a ;
+  font-weight : bold ;
   
 }
 #navbarlogin:hover{
-  background-color: transparent !important;
-  
+  background-color: #a9a9a9 !important;
+  color : #22577a ;
+  font-weight : bold ;
 }
 #portfolio:hover{
-  background-color: transparent !important;
-  
+  background-color: #a9a9a9 !important;
+  color : #22577a ;
+  font-weight : bold ;
 }
 #Contact:hover{
-  background-color: transparent !important;
-  
+  background-color: #a9a9a9 !important;
+  color : #22577a ;
+  font-weight : bold ;
 }
 #cvDummy:hover{
-  background-color: transparent !important;
-  
+  background-color: #a9a9a9 !important;
+  color : #22577a ;
+  font-weight : bold ;
 }
 #about:hover{
-  background-color: transparent !important;
-  
+  background-color: #a9a9a9 !important;
+  color : #22577a ;
+  font-weight : bold ;
 }
+
 .aboutheader{
   background-image: url('./img/resume2.jpg');
   background-position: cover;
@@ -140,7 +145,7 @@ code {
   margin-bottom: 2% !important;
 }
 .aboutprofile{
-  background-color: #251f6e !important;
+  background-color: #22577a !important;
   
 }
 .row{
@@ -157,24 +162,7 @@ code {
 .container {
   padding: 20px 16px !important;
 }
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
-  border-color: white !important;
-}
-.css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root{
-  color:white !important;
-}
-.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
-  color: white !important;
-}
-.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
-  color: white !important;
-}
-.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
-  color: white!important;
-}
-.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root{
-  color: white !important;
-}
+
 .profileheading{
   font-size: 2rem !important;
 }

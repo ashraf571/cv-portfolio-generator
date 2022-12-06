@@ -21,8 +21,8 @@ const TimePresent = () => {
         {isChecked ? <TextTimePresent /> : <EndTime />}
         
       <Box sx = {{ ml : {smallmobile : 0 , mobile : 0 , Bigmobile : 1 , tablet : 2} , mt : {mobile : 0 , Bigmobile : 1}}}>
-      <FormGroup  >
-      <FormControlLabel control = {<Checkbox checked={isChecked} onChange={() => setIsChecked((prev) => !prev)} undefaultChecked />} label="Present" />
+      <FormGroup style = {{color : '#22577a'}} >
+      <FormControlLabel  control = {<Checkbox checked={isChecked} style = {{color : '#22577a'}} onChange={() => setIsChecked((prev) => !prev)} undefaultChecked />} label="Present" />
       </FormGroup>
       </Box>
       </Box>

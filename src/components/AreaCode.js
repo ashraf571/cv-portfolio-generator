@@ -3,23 +3,24 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
+import { Constants } from '../helper/Constants';
 
 const CssTextField = styled(TextField)({
   '& label.Mui-focused': {
-    color: 'green',
+    color: Constants.primaryColor,
   },
   '& .MuiInput-underline:after': {
     borderBottomColor: 'green',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: 'purple',
+      borderColor: Constants.primaryColor,
     },
     '&:hover fieldset': {
-      borderColor: 'blue',
+      borderColor: "green",
     },
     '&.Mui-focused fieldset': {
-      borderColor: 'green',
+      borderColor: Constants.primaryColor,
     },
   },
 });

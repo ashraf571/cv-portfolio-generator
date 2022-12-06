@@ -10,23 +10,23 @@ import Contact from './contactus'
 import PersonalInformation from "./PersonalInformation";
 import EducationInformation from "./EducationInformation";
 import WorkExperience from "./WorkExperience";
+
+
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route>
-        <Route path="/aboutus" element={<About />} />
-          <Route path="/cvDemi" element={<Demi />} />
           <Route path="/" element={<Landingpage />} />
-          <Route index path="/login"  element={<LogIn />} /> 
-           <Route path="/signup" element={<SignUp />} />
-           <Route path="/portfolio" element={<Portfolio />} />
-           <Route path="/cvDummy2" element={<Demi2 />} />
-           <Route path="/contactus" element={<Contact />} />
-           <Route path = "/PersonalInformation" element = {<PersonalInformation />} />
-      <Route path = "/EducationInformation" element = {<EducationInformation />} />
-      <Route path = "/WorkExperience" element = {<WorkExperience />} /> 
-        </Route>
+          <Route path="/aboutus" element={<About />} />
+          <Route path="/cvDemi" element={<Demi />} />
+          <Route path="/login"  element={<LogIn />} /> 
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/cvDummy2" element={<Demi2 />} />
+          <Route path="/contactus" element={<Contact />} />
+          <Route path = "/PersonalInformation" element = {<PersonalInformation />} />
+          <Route path = "/EducationInformation" element = {<EducationInformation />} />
+          <Route path = "/WorkExperience" element = {<WorkExperience />} /> 
       </Routes>
     </BrowserRouter>
   );

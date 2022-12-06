@@ -5,9 +5,34 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import { MDBRow, MDBCol } from "mdb-react-ui-kit";
-import profile from "./img/profile.jpg";
 import SendIcon from '@mui/icons-material/Send';
 import Navbar from './Navbar';
+import { styled } from '@mui/material/styles';
+
+const CssTextField = styled(TextField)({
+  '& label': {
+    color : '#22577a'
+  },
+  '& label.Mui-focused': {
+    color: '#22577a',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: '#22577a',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: '#22577a',
+    },
+    '&:hover fieldset': {
+      borderColor: "#22577a",
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#22577a',
+    },
+    
+  },
+});
+
 function Contact(){
   const navigate = useNavigate();
   const [input, setInput] = useState({
@@ -44,15 +69,15 @@ function Contact(){
       }));
     }
     return(
-        <>
+        <div>
         <Navbar/>
-        <MDBRow className="contact d-flex flex-column flex-lg-row px-5 py-5 position-relative "  style={{top:'65px'}}>
+        <MDBRow className="d-flex flex-column flex-lg-row px-5 py-5 position-relative "  style={{top:'65px' , backgroundColor : 'lightgray'}}>
         <MDBCol className="mb-5 col-12 col-lg-6 mx-auto py-5">
             <section className="text-start d-flex flex-columnn justify-content-center  lg:w-full lg:py-40 lg:text-left">
               
             <div className=" mt-md-5 mt-md-2 ">
-                <h1 className="text-white px-5">Contact Us</h1>
-                <p className="text-break text-white px-5">
+                <h1 style = {{color : 'black'}} className=" px-5">Contact Us</h1>
+                <p style = {{color : 'black'}} className="text-break px-5">
                 Get in touch with us for further details and more queries. We will be very happy to know your feedback about us.
                 </p>
               </div>
@@ -69,12 +94,12 @@ function Contact(){
       }}
     >
       <FormControl fullWidth   tag="form" >
-      <TextField fullWidth label="Name" id="name" className="my-2 " name="name" type="text" required autoComplete="off" onChange={onInputChange}/>
-      <TextField fullWidth label="Email" id="email" className="my-2 " type="email" name="email" required autoComplete="off" onChange={onInputChange}/>
-      <TextField fullWidth label="Write a Subject" id="subject"className="my-2 " type="text" name="subject" required autoComplete="off" onChange={onInputChange}/>
-      <TextField fullWidth label="Message" id="message"   multiline name="message"
+      <CssTextField inputProps={{ style: { color: "#22577a" } }} fullWidth label="Name" id="name" className="my-2 " name="name" type="text" required autoComplete="off" onChange={onInputChange}/>
+      <CssTextField inputProps={{ style: { color: "#22577a" } }} fullWidth label="Email" id="email" className="my-2 " type="email" name="email" required autoComplete="off" onChange={onInputChange}/>
+      <CssTextField inputProps={{ style: { color: "#22577a" } }} fullWidth label="Write a Subject" id="subject"className="my-2 " type="text" name="subject" required autoComplete="off" onChange={onInputChange}/>
+      <CssTextField inputProps={{ style: { color: "#22577a" } }} fullWidth label="Message" id="message"   multiline name="message"
           rows={4} className="my-2 " type="text" required autoComplete="off" onChange={onInputChange}/>
-          <Button style={{width:'30%'}} variant="contained"  endIcon={<SendIcon />} onClick={handleSubmit}>
+          <Button style={{width:'25%'}} variant="contained" sx = {{backgroundColor : '#22577a' , color : '#a9a9a9' , fontWeight : 'bold'}} endIcon={<SendIcon />} onClick={handleSubmit}>
   Send
 </Button>
 </FormControl>
@@ -84,11 +109,11 @@ function Contact(){
 
           
         </MDBRow>
-        <footer className="bg-white text-center text-black position-relative">
+        <footer className=" text-center position-relative" style = {{backgroundColor : '#a9a9a9'}}>
           <div className="container p-4 pb-0">
             <section className="mb-4">
               <a
-                className="btn btn-outline-dark btn-floating m-1"
+               className="btn btn-outline-dark btn-floating m-1"
                 href="#!"
                 role="button"
               >
@@ -137,17 +162,14 @@ function Contact(){
             </section>
           </div>
 
-          <div
-            className="text-center p-3 text-white bg-dark"
-            
-          >
-            © 2020 Copyright:
-            <a className="text-white" href="https://securehops.com/">
-              Securehops.com
+          <div style = {{backgroundColor : '#22577a'}} className="text-center p-3 text-white">
+            © 2023 Copyright:
+            <a className="text-white" href="https://raisingskills.com/">
+              Raisingskills.com
             </a>
           </div>
         </footer>
-        </>
+        </div>
     );
 }
 export default Contact;
